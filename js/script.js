@@ -1,3 +1,4 @@
+import { Modal } from "./modal"
 // variaveis
 const form = document.querySelector('form')
 const inputWeight = document.querySelector('#weight')
@@ -7,19 +8,6 @@ const inputHeigth = document.querySelector('#heigth')
 //const modalMessage = document.querySelector('.modal .title span')
 //const modalBtnClose = document.querySelector('.modal button.close')
 
-// Responsavel pelo modal
-const Modal = {
-  wrapper: document.querySelector('.modal-wrapper'),
-  message: document.querySelector('.modal .title span'),
-  buttonClose: document.querySelector('.modal button.close'),
-  
-  open: function() { //duas maneiras diferente de fazer
-    Modal.wrapper.classList.add('open')
-  }, 
-  close() {
-    Modal.wrapper.classList.remove('open')
-  }
-}
 
 form.onsubmit = function(event) { //function normal
   event.preventDefault();
@@ -36,10 +24,7 @@ form.onsubmit = function(event) { //function normal
   Modal.open()
 }
 
-Modal.buttonClose.onclick = () => { // array function
-  //modalWrapper.classList.remove('open')
-  Modal.close()
-}
+
 
 function IMC (weight, height)  {
   return (weight / ((height / 100) ** 2)).toFixed(2)
