@@ -1,7 +1,7 @@
 # IMC: calcule o seu
 
 <p align="center">
-  <img src="https://imgur.com/a/SaCnPfz" />
+  <img src="[https://imgur.com/a/SaCnPfz](https://imgur.com/Skf648z)" />
 </p>
 
 Este projeto é parte do Explorer, programa de desenvolvimento fullstack oferecido pela Rocketseat.
