@@ -1,7 +1,11 @@
+//const modalWrapper = document.querySelector('.modal-wrapper')
+//const modalMessage = document.querySelector('.modal .title span')
+//const modalBtnClose = document.querySelector('.modal button.close')
+
 export const Modal = {
   wrapper: document.querySelector('.modal-wrapper'),
-  message: document.querySelector('.modal .title span'),
-  buttonClose: document.querySelector('.modal button.close'),
+  message: document.querySelector('.result'),
+  buttonClose: document.querySelector('#close'),
   
   open: function() { //duas maneiras diferente de fazer
     Modal.wrapper.classList.add('open')

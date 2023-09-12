@@ -1,32 +1,39 @@
-import { Modal } from "./modal"
+import {Modal} from "./modal.js"
+import {AlertError} from "./alert-error.js"
+import {notNumber, calculateIMC} from "./utils.js"
+
 // variaveis
 const form = document.querySelector('form')
 const inputWeight = document.querySelector('#weight')
 const inputHeigth = document.querySelector('#heigth')
 
-//const modalWrapper = document.querySelector('.modal-wrapper')
-//const modalMessage = document.querySelector('.modal .title span')
-//const modalBtnClose = document.querySelector('.modal button.close')
-
+inputHeigth.oninput = () => AlertError.close()
+inputWeight.oninput = () => AlertError.close()
 
 form.onsubmit = function(event) { //function normal
   event.preventDefault();
   
   const weight = inputWeight.value
-  const heigth = inputHeigth.value
-
-  const result = IMC(weight, heigth)
-  const message = `Seu IMC é de ${result}`
+  const heigth = inputHeigth.value 
   
-  //modalMessage.innerText = message
-  Modal.Message.innerText = message
-  //modalWrapper.classList.add('open')
-  Modal.open()
+  const weightOrHeightIsNotNumber = notNumber(weight) || notNumber(heigth)
+
+  if (weightOrHeightIsNotNumber ) {
+    AlertError.open()
+    return
+  }
+
+  AlertError.close()  
+
+  const resultIMC = calculateIMC(weight, heigth)
+  displayResultMessage(resultIMC)
 }
 
-
-
-function IMC (weight, height)  {
-  return (weight / ((height / 100) ** 2)).toFixed(2)
+function displayResultMessage(resultIMC) {
+  
+  //modalMessage.innerText = message
+  Modal.message.innerText = `${resultIMC}`
+  //modalWrapper.classList.add('open')
+  Modal.open()
 }
 
